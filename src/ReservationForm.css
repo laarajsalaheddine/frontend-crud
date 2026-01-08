@@ -1,0 +1,98 @@
+.reservation-form-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.reservation-form-container h2 {
+  text-align: center;
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.reservation-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.reservation-form-container input,
+.reservation-form-container textarea {
+  padding: 0.75rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.reservation-form-container input:focus,
+.reservation-form-container textarea:focus {
+  outline: none;
+  background-color: white;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.reservation-form-container input::placeholder,
+.reservation-form-container textarea::placeholder {
+  color: #999;
+}
+
+.reservation-form-container textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.reservation-form-container button {
+  padding: 0.9rem 2rem;
+  background-color: white;
+  color: #667eea;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.reservation-form-container button:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.reservation-form-container button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .reservation-form-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .reservation-form-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .reservation-form-container input,
+  .reservation-form-container textarea,
+  .reservation-form-container button {
+    font-size: 0.95rem;
+  }
+}
