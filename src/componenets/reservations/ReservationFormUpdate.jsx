@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import '../ReservationForm.css'
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import '../../ReservationForm.css'
 
-export default function ReservationForm() {
+export default function ReservationFormUpdate() {
+    const { id } = useParams();
     const formDataRef = useRef(null);
-    const [isSubmitted, setIsSubmitted] = useState(false);
     const redirectMe = useNavigate();
+    const [isSubmitted, setIsSubmitted] = useState(false);
     const [formData, setFormData] = useState(
         {
             fullName: "",
@@ -21,17 +22,34 @@ export default function ReservationForm() {
         form (ui) ==> formData (varaiable d'etat) ==> usRef.hook.current (useRef => mutable) ==> POST fetch ==> backend
     */
 
+    useEffect(() => {
+        function fetchData() {
+            fetch(`http://localhost:8000/reservations/${id}`) // Par default la methode est GET
+                .then((response) => response.json())
+                .then((data) => {
+                    setFormData(data);
+                })
+                .catch((error) => {
+                    console.clear()
+                    console.error('Error fetching data:', error)
+                });
+        }
+        fetchData();
 
+        return () => {
+            console.log("Cleanup if needed");
+        }
+    }, [])
 
     useEffect(() => {
         if (!isSubmitted) return;
         // if (!formDataRef.current) return;
-        function sendData() {
+        function updateObject() {
             // uri
             // endpoint = URI + resource (dans ce cas "post")
-            fetch('http://localhost:8000/reservations',
+            fetch(`http://localhost:8000/reservations/${id}`,
                 {
-                    method: 'POST', // verbe HTTP
+                    method: 'PUT', // verbe HTTP (put/patch/update/post)
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -50,10 +68,9 @@ export default function ReservationForm() {
                     redirectMe("/");
                 });
         }
-        sendData();
-        console.log("sendiiing !!! ?");
-        
+        updateObject();
 
+        console.log("sendiiing !!! ?");
         return () => {
             console.log("Cleanup if needed");
         }

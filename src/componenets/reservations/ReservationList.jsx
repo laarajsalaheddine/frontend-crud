@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import '../ReservationList.css'
+import '../../ReservationList.css'
 import { Link, useParams, useNavigate } from "react-router-dom";
 
 export default function () {
@@ -60,6 +60,9 @@ export default function () {
     return (
         <>
             <div className="reservation-list">
+                <div>
+                    <Link to="/add-reservation" style={{ color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Ajouter</Link>
+                </div>
                 {
                     data.map(
                         (element) => {

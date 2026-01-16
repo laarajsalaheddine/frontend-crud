@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route, Link, Links } from 'react-router-dom'
-import ReservationList from './componenets/ReservationList'
-import ReservationForm from './componenets/ReservationForm'
-import ReservationFormUpdate from './componenets/ReservationFormUpdate'
+import ReservationList from './componenets/reservations/ReservationList'
+import ReservationForm from './componenets/reservations/ReservationForm'
+import ReservationFormUpdate from './componenets/reservations/ReservationFormUpdate'
 import './App.css'
 
 function App() {
@@ -12,15 +12,19 @@ function App() {
       <BrowserRouter>
 
         <nav style={{ display: 'flex', gap: '20px', padding: '15px', backgroundColor: '#333', marginBottom: '20px' }}>
-          <Link to="/" style={{ color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Liste</Link>
-          <Link to="/add-reservation" style={{ color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Ajouter</Link>
+          <Link to="/reservations" style={{ color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Reservation</Link>
+          <Link to="/serveurs" style={{ color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Serveurs</Link>
+          
         </nav>
 
         <Routes>
-          <Route path="/" element={<ReservationList />} />
+          <Route path="/reservations" element={<ReservationList />} />
           <Route path="/add-reservation" element={<ReservationForm />} />
           <Route path="/edit-reservation/:id" element={<ReservationFormUpdate />} />
           <Route path="/delete-reservation/:id" element={<ReservationList />} />
+          {/* 
+            Ajouter le mapping des routes des serveurs ici
+          */}
         </Routes>
 
       </BrowserRouter>
