@@ -4,6 +4,7 @@ import '../ReservationForm.css'
 
 export default function ReservationFormUpdate() {
     const { id } = useParams();
+    const formDataRef = useRef(null);
     const redirectMe = useNavigate();
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [formData, setFormData] = useState(
@@ -21,12 +22,9 @@ export default function ReservationFormUpdate() {
         form (ui) ==> formData (varaiable d'etat) ==> usRef.hook.current (useRef => mutable) ==> POST fetch ==> backend
     */
 
-    const formDataRef = useRef(null);
-
-
     useEffect(() => {
         function fetchData() {
-            fetch(`http://localhost:3001/reservations/${id}`) // Par default la methode est GET
+            fetch(`http://localhost:8000/reservations/${id}`) // Par default la methode est GET
                 .then((response) => response.json())
                 .then((data) => {
                     setFormData(data);
@@ -49,26 +47,26 @@ export default function ReservationFormUpdate() {
         function updateObject() {
             // uri
             // endpoint = URI + resource (dans ce cas "post")
-            fetch(`http://localhost:3001/reservations/${id}`,
+            fetch(`http://localhost:8000/reservations/${id}`,
                 {
-                    method: 'PUT', // verbe HTTP
+                    method: 'PUT', // verbe HTTP (put/patch/update/post)
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(formDataRef.current)
                 }
             ).then((response) => response.json())
-             .then((data) => {
-                //setFormData(data)
-            })
-            .catch((error) => {
-                console.clear()
-                console.error('Error Posting data:', error)
-            }).finally(() => {
-                // IMPORTANT : rem ettre isSubmitted à false pour permettre le prochain submit
-                setIsSubmitted(false);
-                redirectMe("/");
-            });
+                .then((data) => {
+                    //setFormData(data)
+                })
+                .catch((error) => {
+                    console.clear()
+                    console.error('Error Posting data:', error)
+                }).finally(() => {
+                    // IMPORTANT : rem ettre isSubmitted à false pour permettre le prochain submit
+                    setIsSubmitted(false);
+                    redirectMe("/");
+                });
         }
         updateObject();
 

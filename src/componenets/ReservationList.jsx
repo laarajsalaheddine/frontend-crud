@@ -1,25 +1,61 @@
 import { useState, useEffect } from 'react'
 import '../ReservationList.css'
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 export default function () {
     const [data, setData] = useState([])
+    const { id } = useParams()
+    const redirectMe = useNavigate();
+
     useEffect(() => {
         function fetchData() {
-            fetch('http://localhost:3001/reservations')
+            fetch('http://localhost:8000/reservations')
                 .then((response) => response.json())
                 .then((data) => setData(data))
                 .catch((error) => {
                     console.clear()
                     console.error('Error fetching data:', error)
                 });
+
+            // async / await (try catch)
         }
+
         fetchData();
 
         return () => {
             console.log("Cleanup if needed");
         }
     }, [])
+
+    // cycle de vie: Montage => Mise à jour => Démontage
+    const deleteObject = (targetId = null) => {
+        // let confirmation = confirm("Voulez-vous vraiment supprimer cette réservation ?")
+        // if (confirmation && targetId) {
+        // console.log("ID delete:", typeof targetId + " => " + targetId);
+        function deleteData() {
+            fetch(`http://localhost:8000/reservations/${targetId}`, {
+                method: 'DELETE' // verbe HTTP
+            })
+                .then((response) => response.json())
+                .then((dataAfterDelete) => {
+                    setData(
+                        data.filter(
+                            (element) => {
+                                return element.id != targetId
+                            }
+                        )
+                    )
+                })
+                .catch((error) => {
+                    console.clear()
+                    console.error('Error de suppression:', error)
+                });
+        }
+
+        deleteData();
+        // }
+    }
+
 
     return (
         <>
@@ -39,7 +75,9 @@ export default function () {
                                     </div>
                                     <div>
                                         <Link to={`/edit-reservation/${element.id}`}>Éditer</Link>
-                                        <Link to={`/delete/${element.id}`}>Supprimer</Link>
+                                        <button onClick={() =>
+                                            deleteObject(element.id)
+                                        }>Supprimer</button>
                                     </div>
                                 </div>
                             );

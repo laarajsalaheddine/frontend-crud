@@ -1,8 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import '../ReservationForm.css'
+import { useNavigate } from "react-router-dom";
 
 export default function ReservationForm() {
+    const formDataRef = useRef(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const redirectMe = useNavigate();
     const [formData, setFormData] = useState(
         {
             fullName: "",
@@ -18,7 +21,7 @@ export default function ReservationForm() {
         form (ui) ==> formData (varaiable d'etat) ==> usRef.hook.current (useRef => mutable) ==> POST fetch ==> backend
     */
 
-    const formDataRef = useRef(null);
+
 
     useEffect(() => {
         if (!isSubmitted) return;
@@ -26,7 +29,7 @@ export default function ReservationForm() {
         function sendData() {
             // uri
             // endpoint = URI + resource (dans ce cas "post")
-            fetch('http://localhost:3001/reservations',
+            fetch('http://localhost:8000/reservations',
                 {
                     method: 'POST', // verbe HTTP
                     headers: {
@@ -44,11 +47,13 @@ export default function ReservationForm() {
                 }).finally(() => {
                     // IMPORTANT : rem ettre isSubmitted à false pour permettre le prochain submit
                     setIsSubmitted(false);
+                    redirectMe("/");
                 });
         }
         sendData();
-
         console.log("sendiiing !!! ?");
+        
+
         return () => {
             console.log("Cleanup if needed");
         }

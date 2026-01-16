@@ -10,22 +10,79 @@
       "notes": "Table tranquille si possible"
     },
     {
-      "id": "6",
-      "fullName": "Ayoub elkaabi",
-      "phone": "099 099 0999",
-      "guests": 2,
-      "date": "2026-01-09",
-      "time": "21:00",
-      "notes": "Il faux pas jouer Amrabat"
+      "id": "7",
+      "fullName": "Monkey D Luffy",
+      "phone": "0101010101",
+      "guests": "10",
+      "date": "2026-01-22",
+      "time": "05:50",
+      "notes": "Bring  alot of meat"
     },
     {
-      "id": "7",
-      "fullName": "qsdfqsdf",
-      "phone": "0101010101",
-      "guests": "3",
-      "date": "2026-01-15",
-      "time": "04:50",
-      "notes": "Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes Notes "
+      "id": "8",
+      "fullName": "Jean Martin",
+      "phone": "07 12 34 56 78",
+      "guests": 2,
+      "date": "2026-01-25",
+      "time": "20:00",
+      "notes": "Allergies aux fruits de mer"
+    },
+    {
+      "id": "9",
+      "fullName": "Marie Dupont",
+      "phone": "06 98 76 54 32",
+      "guests": 4,
+      "date": "2026-01-28",
+      "time": "19:00",
+      "notes": "Célébration d'anniversaire"
+    },
+    {
+      "id": "10",
+      "fullName": "Pierre Bernard",
+      "phone": "07 45 23 89 01",
+      "guests": 5,
+      "date": "2026-02-01",
+      "time": "21:00",
+      "notes": ""
+    },
+    {
+      "id": "11",
+      "fullName": "Amélie Rousseau",
+      "phone": "06 78 90 12 34",
+      "guests": 2,
+      "date": "2026-02-05",
+      "time": "18:30",
+      "notes": "Vin blanc recommandé"
+    }
+  ],
+  "serveurs": [
+    {
+      "id": "1",
+      "fullName": "Thomas Leclerc",
+      "phone": "06 12 34 56 78",
+      "email": "thomas.leclerc@example.com",
+      "shift": "soir"
+    },
+    {
+      "id": "2",
+      "fullName": "Emma Durand",
+      "phone": "07 23 45 67 89",
+      "email": "emma.durand@example.com",
+      "shift": "soir"
+    },
+    {
+      "id": "3",
+      "fullName": "Luc Moreau",
+      "phone": "06 87 65 43 21",
+      "email": "luc.moreau@example.com",
+      "shift": "midi"
+    },
+    {
+      "id": "4",
+      "fullName": "Sophie Martin",
+      "phone": "07 56 78 90 12",
+      "email": "sophie.martin@example.com",
+      "shift": "soir"
     }
   ]
 }
