@@ -14,7 +14,7 @@ function App() {
         <nav style={{ display: 'flex', gap: '20px', padding: '15px', backgroundColor: '#333', marginBottom: '20px' }}>
           <Link to="/reservations" style={{ color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Reservation</Link>
           <Link to="/serveurs" style={{ color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Serveurs</Link>
-          
+
         </nav>
 
         <Routes>

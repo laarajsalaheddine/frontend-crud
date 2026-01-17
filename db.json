@@ -1,22 +1,13 @@
 {
   "reservations": [
     {
-      "id": "4",
-      "fullName": "Sophie Leclerc",
-      "phone": "06 45 67 89 01",
-      "guests": 3,
-      "date": "2026-01-20",
-      "time": "19:30",
-      "notes": "Table tranquille si possible"
-    },
-    {
       "id": "7",
       "fullName": "Monkey D Luffy",
       "phone": "0101010101",
       "guests": "10",
       "date": "2026-01-22",
       "time": "05:50",
-      "notes": "Bring  alot of meat"
+      "notes": "Bring  alot of meat, and booze for Zoro"
     },
     {
       "id": "8",
@@ -35,24 +26,6 @@
       "date": "2026-01-28",
       "time": "19:00",
       "notes": "Célébration d'anniversaire"
-    },
-    {
-      "id": "10",
-      "fullName": "Pierre Bernard",
-      "phone": "07 45 23 89 01",
-      "guests": 5,
-      "date": "2026-02-01",
-      "time": "21:00",
-      "notes": ""
-    },
-    {
-      "id": "11",
-      "fullName": "Amélie Rousseau",
-      "phone": "06 78 90 12 34",
-      "guests": 2,
-      "date": "2026-02-05",
-      "time": "18:30",
-      "notes": "Vin blanc recommandé"
     }
   ],
   "serveurs": [

@@ -47,7 +47,7 @@ export default function ReservationForm() {
                 }).finally(() => {
                     // IMPORTANT : rem ettre isSubmitted à false pour permettre le prochain submit
                     setIsSubmitted(false);
-                    redirectMe("/");
+                    redirectMe("/reservations");
                 });
         }
         sendData();

@@ -65,7 +65,7 @@ export default function ReservationFormUpdate() {
                 }).finally(() => {
                     // IMPORTANT : rem ettre isSubmitted à false pour permettre le prochain submit
                     setIsSubmitted(false);
-                    redirectMe("/");
+                    redirectMe("/reservations");
                 });
         }
         updateObject();
